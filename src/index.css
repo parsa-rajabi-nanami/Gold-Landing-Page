@@ -1,0 +1,468 @@
+@import "tailwindcss";
+@variant dark (&:where(.dark, .dark *));
+
+/* ==========================================================
+   1. FONTS CONFIGURATION
+   ========================================================== */
+@font-face {
+  font-family: 'IRANSans Web';
+  src: url("/fonts/IRANSansWebBold.eot");
+  src: url("/fonts/IRANSansWebBold.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/IRANSansWebBold.woff2") format("woff2"),
+    url("/fonts/IRANSansWebBold.woff") format("woff"),
+    url("/fonts/IRANSansWebBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IRANSans Web';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/IRANSansWebMedium.eot");
+  src: url("/fonts/IRANSansWebMedium.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/IRANSansWebMedium.woff2") format("woff2"),
+    url("/fonts/IRANSansWebMedium.woff") format("woff"),
+    url("/fonts/IRANSansWebMedium.ttf") format("truetype")
+}
+
+@font-face {
+  font-family: 'IRANSans Web';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/fonts/IRANSansWebLight.eot");
+  src: url("/fonts/IRANSansWebLight.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/IRANSansWebLight.woff2") format("woff2"),
+    url("/fonts/IRANSansWebLight.woff") format("woff"),
+    url("/fonts/IRANSansWebLight.ttf") format("truetype")
+}
+
+@font-face {
+  font-family: 'IRANSans Web';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url("/fonts/IRANSansWebUltraLight.eot");
+  src: url("/fonts/IRANSansWebUltraLight.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/IRANSansWebUltraLight.woff2") format("woff2"),
+    url("/fonts/IRANSansWebUltraLight.woff") format("woff"),
+    url("/fonts/IRANSansWebUltraLight.ttf") format("truetype")
+}
+
+@font-face {
+  font-family: 'IRANSans Web';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/IRANSansWeb.eot");
+  src: url("/fonts/IRANSansWeb.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/IRANSansWeb.woff2") format("woff2"),
+    url("/fonts/IRANSansWeb.woff") format("woff"),
+    url("/fonts/IRANSansWeb.ttf") format("truetype")
+}
+
+@font-face {
+  font-family: 'IRAN Kharazmi';
+  src: url("/fonts/IRAN Kharazmi.eot?#") format("eot"),
+    url("/fonts/IRAN Kharazmi.woff") format("woff")
+}
+
+/* ==========================================================
+   1. THEME CONFIGURATION — COSMIC GOLD (LIGHT & DARK MODES)
+   ========================================================== */
+:root {
+  /* Base Backgrounds */
+  --color-bg: #f8f6f0;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f1ede4;
+
+  /* Gold Palette */
+  --color-primary: #c59b27;
+  --color-primary-rgb: 197, 155, 39;
+  --color-gold-light: #dfb743;
+  --color-gold-dark: #8e6d13;
+  --color-gold-glow: rgba(197, 155, 39, 0.25);
+
+  /* Cosmic Deep Navy & Accents */
+  --color-secondary: #0f172a;
+  --color-accent: #0284c7;
+  --color-cosmic-purple: #6366f1;
+
+  /* Typography */
+  --color-text: #0f172a;
+  --color-secondary-text: #334155;
+  --color-text-muted: #64748b;
+  --color-border: #e2e8f0;
+  --color-border-gold: rgba(197, 155, 39, 0.35);
+  --color-link: #b48512;
+
+  /* Status */
+  --color-online: #059669;
+  --color-danger: #e11d48;
+
+  /* Radii & Shadows */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+
+  --shadow-soft: 0 4px 20px rgba(15, 23, 42, 0.06);
+  --shadow-gold: 0 4px 25px rgba(197, 155, 39, 0.2);
+  --shadow-cosmic: 0 4px 25px rgba(2, 132, 199, 0.12);
+}
+
+.dark {
+  /* Base Backgrounds (Deep Space) */
+  --color-bg: #04060d;
+  --color-surface: #0b1120;
+  --color-surface-hover: #131c31;
+
+  /* Gold Palette */
+  --color-primary: #e5c158;
+  --color-primary-rgb: 229, 193, 88;
+  --color-gold-light: #fff0ad;
+  --color-gold-dark: #9e7a24;
+  --color-gold-glow: rgba(229, 193, 88, 0.2);
+
+  /* Cosmic Navy & Accents */
+  --color-secondary: #1e293b;
+  --color-accent: #38bdf8;
+  --color-cosmic-purple: #818cf8;
+
+  /* Typography */
+  --color-text: #f8fafc;
+  --color-secondary-text: #cbd5e1;
+  --color-text-muted: #94a3b8;
+  --color-border: #1e293b;
+  --color-border-gold: rgba(229, 193, 88, 0.25);
+  --color-link: #e5c158;
+
+  /* Status */
+  --color-online: #10b981;
+  --color-danger: #f43f5e;
+
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.5);
+  --shadow-gold: 0 0 25px rgba(229, 193, 88, 0.2);
+  --shadow-cosmic: 0 0 30px rgba(56, 189, 248, 0.12);
+}
+
+/* ----------------------------------------------------------
+   2. TAILWIND V4 THEME & ANIMATIONS CONFIGURATION
+----------------------------------------------------------- */
+@theme {
+  /* Mapping CSS Variables to Tailwind Utilities */
+  --color-bg: var(--color-bg);
+  --color-surface: var(--color-surface);
+  --color-surface-hover: var(--color-surface-hover);
+  --color-primary: var(--color-primary);
+  --color-gold-light: var(--color-gold-light);
+  --color-gold-dark: var(--color-gold-dark);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+  --color-border-gold: var(--color-border-gold);
+
+  /* Fonts */
+  --font-sans: "IRANSans Web", sans-serif;
+  --font-heading: "IRANSans Web", sans-serif;
+  --font-kharazmi: "IRAN Kharazmi", sans-serif;
+  --font-body: "IRANSans Web", "Inter", system-ui, sans-serif;
+
+  /* Keyframe Animations */
+  --animate-scale-in: scale-in 0.5s ease-out;
+  --animate-fade-in: fade-in 0.6s ease-out;
+  --animate-fade-in-left: fade-in-left 0.7s ease-out both;
+  --animate-fade-in-right: fade-in-right 0.7s ease-out both;
+  --animate-fade-in-up: fade-in-up 0.7s ease-out both;
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fade-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@utility animation-delay-300 {
+  animation-delay: 300ms;
+}
+
+@utility animation-delay-400 {
+  animation-delay: 400ms;
+}
+
+@utility animation-delay-500 {
+  animation-delay: 500ms;
+}
+
+/* ----------------------------------------------------------
+   3. BASE CONFIGURATION
+----------------------------------------------------------- */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  html[dir="rtl"] {
+    direction: rtl;
+  }
+
+  html,
+  body {
+    height: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+
+    background-color: var(--color-bg);
+    background-attachment: fixed;
+
+    color: var(--color-text);
+
+    font-family: var(--font-body);
+
+    transition:
+      background-color 0.4s ease,
+      color 0.4s ease,
+      border-color 0.4s ease;
+
+    @apply antialiased;
+  }
+
+  ::selection {
+    background: var(--color-primary);
+    color: #000000;
+  }
+
+  a {
+    color: var(--color-link);
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+  }
+
+  a:hover {
+    color: var(--color-gold-light);
+    text-shadow: 0 0 8px var(--color-gold-glow);
+  }
+
+  *,
+  *::before,
+  *::after {
+    @apply box-border;
+  }
+
+  /* Custom Scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-gold-dark) var(--color-bg);
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-[8px] h-[8px];
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full;
+    background: linear-gradient(180deg, var(--color-gold-dark), var(--color-surface));
+    border: 1px solid var(--color-border);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+  }
+
+  .hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ----------------------------------------------------------
+   4. UTILITY CLASSES & COSMIC GLASS EFFECTS
+----------------------------------------------------------- */
+@layer utilities {
+  .text-gold-gradient {
+    background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-primary) 50%, var(--color-gold-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .border-gold-glow {
+    border: 1px solid var(--color-border-gold);
+    box-shadow: var(--shadow-gold);
+  }
+
+  .cosmic-card {
+    background: var(--color-surface);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--color-border);
+    border-top: 1px solid var(--color-border-gold);
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  }
+
+  .cosmic-card:hover {
+    background-color: var(--color-surface-hover);
+    box-shadow: var(--shadow-gold);
+  }
+
+  .btn-gold {
+    background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-primary) 100%);
+    color: #04060d;
+    font-weight: 600;
+    box-shadow: 0 4px 15px var(--color-gold-glow);
+    transition: all 0.3s ease;
+  }
+
+  .btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(197, 155, 39, 0.4);
+    filter: brightness(1.08);
+  }
+}
+
+/* ----------------------------------------------------------
+   5. HERO SECTION UTILITY
+----------------------------------------------------------- */
+@utility hero-section {
+  --hero-bg: url("/bg-hero-section.jpg");
+
+  @apply relative z-10 w-full max-w-7xl mx-auto my-4 sm:my-6 p-5 sm:p-8 md:p-10 min-h-[80vh] bg-cover bg-center border border-white/10 rounded-3xl backdrop-blur-md animate-scale-in overflow-hidden;
+  background-color: rgba(11, 17, 32, 0.75);
+  background-image: var(--hero-bg);
+
+  .hero-background {
+    @apply absolute inset-0 -z-10 overflow-hidden rounded-3xl pointer-events-none;
+  }
+
+  .hero-background-word {
+    @apply pointer-events-none select-none absolute bottom-6 left-6 animate-fade-in;
+
+    & span {
+      @apply block font-semibold leading-none;
+      font-size: min(20vw, 280px);
+      line-height: 0.8;
+      letter-spacing: -0.02em;
+      color: var(--color-gold-glow);
+    }
+  }
+
+  .hero-title {
+    @apply text-3xl sm:text-5xl lg:text-6xl leading-[1.1] tracking-tighter text-zinc-100 text-start animate-fade-in-left animation-delay-300;
+    @apply text-right lg:text-left leading-relaxed font-kharazmi;
+
+    background: linear-gradient(135deg,
+        #ffffff 0%,
+        #d8dbe0 25%,
+        #f5f5f5 45%,
+        #b8bcc4 65%,
+        #ffffff 82%,
+        #d4af37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-description {
+    @apply max-w-[42ch] text-sm sm:text-base leading-relaxed text-neutral-300 animate-fade-in-right animation-delay-400;
+  }
+
+  .hero-actions {
+    @apply flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-5 mt-6 sm:mt-8 w-full animate-fade-in-up animation-delay-500;
+  }
+
+  .hero-button {
+    @apply inline-flex items-center justify-center h-[50px] w-full sm:w-auto cursor-pointer select-none whitespace-nowrap no-underline rounded-xl text-sm transition-all duration-200 ease-out active:scale-[0.98];
+  }
+
+  .hero-button span {
+    @apply flex items-center justify-center gap-2 w-full h-full rounded-lg px-6 py-3;
+  }
+
+  .hero-button-primary {
+    @apply p-[2px] text-zinc-950 font-semibold bg-gradient-to-r from-[var(--color-gold-light)] via-[var(--color-primary)] to-[var(--color-gold-dark)] shadow-[0_10px_25px_-5px_var(--color-gold-glow)];
+  }
+
+  .hero-button-primary:hover {
+    @apply scale-[1.02] shadow-[0_15px_30px_-5px_var(--color-gold-glow)];
+  }
+
+  .hero-button-primary span {
+    @apply bg-transparent;
+  }
+
+  .hero-button-secondary {
+    @apply p-[2px] text-white bg-white/5 border border-white/10 shadow-[0_1px_0_rgba(255,255,255,0.05)_inset];
+  }
+
+  .hero-button-secondary:hover {
+    @apply bg-white/15 border-white/20 scale-[1.02];
+  }
+
+  .hero-button-secondary span {
+    @apply bg-transparent;
+  }
+
+  .hero-button svg {
+    @apply w-4 h-4 transition-transform duration-200;
+  }
+}

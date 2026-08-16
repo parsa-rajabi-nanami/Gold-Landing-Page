@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="theme-color" content="#0d0f17" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="/icon.png" />
+  <link rel="apple-touch-icon" href="/icon.png" />
+
+  <!-- SEO Meta Tags -->
+  <title>ناسا گلد | سامانه هوشمند خرید و فروش آنلاین طلا و سکه (Nasa Gold)</title>
+  <meta name="robots" content="index, follow" />
+  <meta name="description"
+    content="سامانه آنلاین خرید و فروش طلای آبشده، سکه و شمش با قیمت لحظه‌ای، کارمزد شفاف و تحویل فیزیکی ایمن در ناسا گلد." />
+  <meta name="keywords"
+    content="خرید طلا, فروش طلا, طلای آبشده, قیمت لحظه‌ای طلا, ناسا گلد, Nasa Gold, سرمایه‌گذاری طلا, شمش طلا" />
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="ناسا گلد | معامله آنلاین و لحظه‌ای طلا" />
+  <meta property="og:description" content="خرید و فروش آنلاین طلای آبشده و سکه با تحویل فیزیکی و کیف پول اختصاصی." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="%VITE_SITE_URL%/preview.jpg" />
+  <meta property="og:url" content="%VITE_SITE_URL%" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nasa Gold | معامله آنلاین طلا" />
+  <meta name="twitter:description" content="سامانه هوشمند معامله طلای آبشده و سکه." />
+  <meta name="twitter:image" content="%VITE_SITE_URL%/preview.jpg" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="%VITE_SITE_URL%" />
+
+  <!-- Prevent FOUC: Runs script before body renders -->
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('theme');
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+  </script>
+</head>
+
+<body class="antialiased selection:bg-amber-500 selection:text-black">
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
