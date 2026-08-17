@@ -13,20 +13,23 @@ import './App.css'
 function App() {
     // Loader Conf
     const [loading, setLoading] = useState(true);
-
     useEffect(() => {
-        window.addEventListener("load", () => {
-            setTimeout(() => {
-                setLoading(false);
-            }, 1500);
-        });
-    }, []);
+        const finishLoading = () => {
+            setTimeout(() => setLoading(false), 1500);
+        };
 
+        if (document.readyState === "complete") {
+            finishLoading();
+        } else {
+            window.addEventListener("load", finishLoading);
+            return () => window.removeEventListener("load", finishLoading);
+        }
+    }, []);
 
     return (
         <>
             <LuxuryCursor />
-            
+
             <AnimatePresence mode="wait">
                 {
                     loading ? (
